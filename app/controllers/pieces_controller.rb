@@ -21,4 +21,10 @@ class PiecesController < ApplicationController
 
     def destroy
     end
+
+    private
+  
+    def piece_params
+      params.require(:piece).permit(:artist_id, :museum_id)
+    end
 end

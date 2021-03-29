@@ -20,4 +20,10 @@ class ArtistsController < ApplicationController
 
     def destroy
     end
+
+    private
+  
+    def artist_params
+      params.require(:artist).permit(:username, :name, :hometown, :password)
+    end
 end

@@ -21,4 +21,10 @@ class MuseumsController < ApplicationController
 
     def destroy
     end
+
+    private
+  
+    def museum_params
+      params.require(:museum).permit(:name, :location)
+    end
 end
