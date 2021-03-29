@@ -2,12 +2,17 @@ class PiecesController < ApplicationController
 
     
     def index
+        @pieces = Piece.all
     end
 
     def new
+        @piece = Piece.new
     end
 
     def create
+        piece = Piece.create(piece_params)
+        message = piece.make_art
+        redirect_to artist_path(piece.artist), flash: {message: message}
     end
 
     def show
