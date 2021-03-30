@@ -1,0 +1,30 @@
+<%= form_for @artist do |f| %>
+    <% if @artist.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+        <% @artist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :username, "Username" %>
+    <br>
+    <%= f.number_field :username %>
+    <br>
+    <%= f.label :hometown, "What is your Hometown?" %>
+    <br>
+    <%= f.number_field :hometown %>
+    <br>
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password %>
+
+    <br/>
+    <%= f.submit  %>
+<% end %>

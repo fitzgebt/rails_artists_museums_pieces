@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<% if flash[:message] %>
+  <div class="center alert">
+    <p><%= flash[:message] %></p>
+  </div>
+<% end %>
+
+<p><strong>Name:</strong> <%= @artist.name %></p>
+<p><strong>Hometown:</strong> <%= @artist.hometown %></p>
+<p><strong>Username:</strong>  <%= @artist.Username %></p>
+<p><%= link_to 'See Masterpieces', pieces_path %></p>
