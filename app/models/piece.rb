@@ -1,6 +1,6 @@
 class Piece < ApplicationRecord
-    belong_to :museum
-	belong_to :artist
+    belongs_to :museum
+	belongs_to :artist
 
 
     def make_art

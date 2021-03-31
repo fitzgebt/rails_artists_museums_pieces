@@ -1,0 +1,14 @@
+<p><strong>Name:</strong> <%= @museum.name %></p>
+    <p><strong>Total Number of Artists:</strong> <%= @museum.artists.count %></p>
+    <p><strong>Location:</strong> <%= @museum.location %></p>
+    <p><strong>Number of Pieces in Collection:</strong> <%= @museum.pieces.count %></p>
+    
+    <%= form_for @piece, url: museum_pieces_path(@museum.id) do |f| %>
+        <%= f.hidden_field :artist_id %><br />
+        <%= f.hidden_field :museum_id %><br />
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :year_created %>
+        <%= f.text_field :year_created %>
+        <%= f.submit "Submit a new Piece to this Museum", class:"btn btn-light" %>
+    <% end %>

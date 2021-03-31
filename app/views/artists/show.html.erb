@@ -8,5 +8,6 @@
 
 <p><strong>Name:</strong> <%= @artist.name %></p>
 <p><strong>Hometown:</strong> <%= @artist.hometown %></p>
-<p><strong>Username:</strong>  <%= @artist.Username %></p>
-<p><%= link_to 'See Masterpieces', pieces_path %></p>
+<p><strong>Username:</strong>  <%= @artist.username %></p>
+<p><%= link_to 'See Masterpieces', artist_pieces_path(@artist.id) %></p>
+<p><%= link_to 'See Museums', museums_path %></p>

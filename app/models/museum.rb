@@ -1,5 +1,5 @@
 class Museum < ApplicationRecord
-    have_many :pieces
-	have_many :artists, through: :pieces
+    has_many :pieces
+	has_many :artists, through: :pieces
 
 end

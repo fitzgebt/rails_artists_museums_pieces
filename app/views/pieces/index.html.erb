@@ -1,0 +1,6 @@
+<h1>Your Masterpieces</h1>
+<% artist = Artist.find_by_id(params[:artist_id]) %>
+<% artist.pieces.each do |piece| %>
+    <%=piece.name%>
+    <%=piece.year_created%>
+    <%end%>

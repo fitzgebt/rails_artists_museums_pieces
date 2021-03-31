@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+    skip_before_action :logged_in, only: [:new, :create]
 
     def index
         @artists = Artist.all
@@ -34,6 +35,6 @@ class ArtistsController < ApplicationController
     private
   
     def artist_params
-      params.require(:artist).permit(:username, :name, :hometown, :password)
+      params.require(:artist).permit(:username, :name, :hometown, :password_digest)
     end
 end

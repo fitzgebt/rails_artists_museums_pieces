@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  resources :pieces
-  resources :museums
+  # resources :pieces
+  # resources :museums
   # resources :artists
   resources :artists do
-    resources :pieces, only: [:show, :index]
+    resources :pieces, only: [:show, :index, :new, :create]
+  end
+  resources :museums do
+    resources :pieces, only: [:show, :index, :new, :create]
   end
   root 'static#home'
   get '/signin', to: 'session#new', as: 'signin'

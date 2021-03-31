@@ -1,0 +1,9 @@
+<%= form_for @museum do |f| %>
+    <%= f.label :name %><br>
+    <%=f.text_field :name %> <br>
+
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+    <br>
+    <%= f.submit class: "btn btn-primary" %> 
+<% end %> 

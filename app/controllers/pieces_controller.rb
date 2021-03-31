@@ -10,6 +10,7 @@ class PiecesController < ApplicationController
     end
 
     def create
+        binding.pry
         piece = Piece.create(piece_params)
         message = piece.make_art
         redirect_to artist_path(piece.artist), flash: {message: message}
