@@ -4,6 +4,7 @@ class SessionController < ApplicationController
   
     def new
       @artist = Artist.new
+      @all_artists = Artist.all
     end
 
     def create

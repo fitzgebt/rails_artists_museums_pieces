@@ -30,6 +30,10 @@ class MuseumsController < ApplicationController
         redirect_to museum_path(museum)
     end
 
+    def open
+        @museums = Museum.open_status
+    end
+
     private
   
     def museum_params

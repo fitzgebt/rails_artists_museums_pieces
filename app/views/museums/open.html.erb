@@ -1,0 +1,7 @@
+<h1>Museums Currently Open</h1>
+<% @museums.each do |museum| %>
+    <strong>Name</strong><%= museum.name %>
+    <strong>Location</strong><%= museum.location %>
+    <strong>Pieces in Collection</strong><%= museum.pieces.count %>
+    <%= link_to "View or Submit New Art", museum_path(museum) %> <br>
+<%end%>
