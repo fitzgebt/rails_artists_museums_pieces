@@ -3,21 +3,25 @@
     <p><strong>Location:</strong> <%= @museum.location %></p>
     <p><strong>Number of Pieces in Collection:</strong> <%= @museum.pieces.count %></p>
     
-    <%= form_for @piece, url: museum_pieces_path(@museum.id) do |f| %>
-        <%= f.hidden_field :artist_id %><br />
-        <%= f.hidden_field :museum_id %><br />
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <%= f.label :year_created %>
-        <%= f.text_field :year_created %>
-        <%= f.submit "Submit a new Piece to this Museum", class:"btn btn-light" %>
-    <% end %>
-
-    <% @museum.pieces.each do |piece| %>
-        <% if piece.id %>
-            <h4><%= piece.name %> - <%= piece.year_created %></h4> 
-            <p> created by <%= piece.artist.name %></p>
+    <% if @museum.open_status == true %>
+        <%= form_for @piece, url: museum_pieces_path(@museum.id) do |f| %>
+            <%= f.hidden_field :artist_id %><br />
+            <%= f.hidden_field :museum_id %><br />
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <%= f.label :year_created %>
+            <%= f.text_field :year_created %>
+            <%= f.submit "Submit a new Piece to this Museum", class:"btn btn-light" %>
         <% end %>
     <% end %>
+
+    
+        <% @museum.pieces.each do |piece| %>
+            <% if piece.id %>
+                <h4><%= piece.name %> - <%= piece.year_created %></h4> 
+                <p> created by <%= piece.artist.name %></p>
+        <% end %>
+    
+<% end %>
 
         

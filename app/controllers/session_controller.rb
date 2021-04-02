@@ -33,7 +33,6 @@ class SessionController < ApplicationController
     end
 
     def github_login
-      binding.pry
       @artist = Artist.find_or_create_by(username: self.request.env['omniauth.auth']['info']['nickname']) do |a|
         session[:omniauth_data] = request.env['omniauth.auth']
         session[:name] = request.env['omniauth.auth']['info']['name']
