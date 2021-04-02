@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # resources :pieces
   # resources :museums
   # resources :artists
+  match '/auth/:provider/callback', to: 'session#create', via: [:get, :post]
   resources :artists do
     resources :pieces, only: [:show, :index, :new, :create]
   end

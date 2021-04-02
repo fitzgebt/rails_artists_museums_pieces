@@ -10,7 +10,6 @@ class PiecesController < ApplicationController
     end
 
     def create
-        binding.pry
         piece = Piece.create(piece_params)
         message = piece.make_art
         redirect_to artist_path(piece.artist), flash: {message: message}
@@ -31,6 +30,6 @@ class PiecesController < ApplicationController
     private
   
     def piece_params
-      params.require(:piece).permit(:artist_id, :museum_id)
+      params.require(:piece).permit(:artist_id, :museum_id, :name, :year_created)
     end
 end

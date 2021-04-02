@@ -10,9 +10,10 @@ class ArtistsController < ApplicationController
     end
 
     def create
-        if (artist = Artist.create(artist_params))
-            session[:artist_id] = artist.id
-            redirect_to artist_path(artist)
+        (@artist = Artist.create(artist_params))
+        if @artist.id
+            session[:artist_id] = @artist.id
+            redirect_to artist_path(@artist)
         else
             render 'new'
         end

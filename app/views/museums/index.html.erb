@@ -5,7 +5,7 @@
     <strong>Name</strong><%= museum.name %>
     <strong>Location</strong><%= museum.location %>
     <strong>Pieces in Collection</strong><%= museum.pieces.count %>
-    <%= link_to "View #{museum.name}", museum_path(museum) %>
+    <%= link_to "View or Submit New Art", museum_path(museum) %> <br>
 
   <%end%>
 
@@ -16,5 +16,5 @@
     <%= link_to "Back to profile", artist_path(@artist), {:class => "btn btn-primary"} %>
   </p>
 <% else %>
-  <p><%= link_to 'New Museum', new_museum_path %></p>
+  <p><%= link_to 'Open New Museum', new_museum_path %></p>
 <% end %>

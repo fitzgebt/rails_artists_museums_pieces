@@ -12,3 +12,12 @@
         <%= f.text_field :year_created %>
         <%= f.submit "Submit a new Piece to this Museum", class:"btn btn-light" %>
     <% end %>
+
+    <% @museum.pieces.each do |piece| %>
+        <% if piece.id %>
+            <h4><%= piece.name %> - <%= piece.year_created %></h4> 
+            <p> created by <%= piece.artist.name %></p>
+        <% end %>
+    <% end %>
+
+        
