@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_155729) do
     t.string "hometown"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "github_login", default: false
   end
 
   create_table "museums", force: :cascade do |t|
