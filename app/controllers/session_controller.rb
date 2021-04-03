@@ -9,14 +9,17 @@ class SessionController < ApplicationController
 
     def create
         @artist = Artist.find_by(username: params[:artist][:username])
-        if @artist && @artist.authenticate(params[:artist][:password])
+        if @artist && @artist.authenticate(params[:password])
           session[:artist_id] = @artist.id
           redirect_to artist_path(@artist)
         elsif @artist
           @errors = ["Invalid Password"]
+          @all_artists = Artist.non_github_login
           render :new
         else
           @errors = ["Invalid Username"]
+          @all_artists = Artist.non_github_login
+          render :new
         end
     end
 

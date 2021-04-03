@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :museums do
     resources :pieces, only: [:show, :index, :new, :create]
   end
+  resources :pieces, only: [:edit, :update, :destroy]
   root 'static#home'
   get '/signin', to: 'session#new', as: 'signin'
   post '/session', to: 'session#create', as: 'session'

@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_155729) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.string "image_description"
   end
 
 end

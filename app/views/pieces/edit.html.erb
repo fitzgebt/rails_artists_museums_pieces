@@ -1,0 +1,28 @@
+<% if @piece.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@piece.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+        <% @piece.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+<%= form_for @piece do |f| %>
+    <%= f.label :name %><br>
+    <%=f.text_field :name %> <br>
+
+    <%= f.label :year_created %><br>
+    <%= f.text_field :year_created %><br>
+
+    <%= f.label :image %><br>
+    <%= f.text_field :image %><br>
+
+    <%= f.label :image_description %><br>
+    <%= f.text_field :image_description %><br>
+    <br>
+    <%= f.submit class: "btn btn-primary" %> 
+<% end %> 
+
+<p><%= link_to 'Remove From Museum', piece_path(@piece), method:'delete' %></p>

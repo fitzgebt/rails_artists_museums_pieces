@@ -28,6 +28,17 @@ class ArtistsController < ApplicationController
     end
 
     def update
+        @artist = Artist.find_by_id(params[:id])
+        if params[:artist][:username] == "" || params[:artist][:name] == ""
+            redirect_to edit_artist_path(@artist)
+        else
+            @artist.update(name: params[:artist][:name], username: params[:artist][:username], hometown: params[:artist][:hometown])
+            if params[:artist][:password] != ""
+                @artist.update(password: params[:artist][:password])
+            end
+            message = "Profile Updated"
+            redirect_to artist_path(@artist), flash: {message: message}
+        end
     end
 
     def destroy

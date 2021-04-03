@@ -2,7 +2,7 @@
     <%= label_tag(:username, "Your username:") %>
     <%= collection_select(:artist, :username, @all_artists, :username, :username, prompt: "Please select your username from this dropdown") %>
     <%= label_tag(:password, "Your password:") %>
-    <%= password_field_tag(:password, nil, class: "form-control") %>
+    <%= password_field_tag(:password, nil) %>
  
     <%= submit_tag("Sign In") %>
 <% end %> 
