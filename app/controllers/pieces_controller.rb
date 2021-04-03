@@ -30,6 +30,6 @@ class PiecesController < ApplicationController
     private
   
     def piece_params
-      params.require(:piece).permit(:artist_id, :museum_id, :name, :year_created)
+      params.require(:piece).permit(:artist_id, :museum_id, :name, :year_created, :image, :image_description)
     end
 end

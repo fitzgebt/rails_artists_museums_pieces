@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_155729) do
     t.integer "museum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
 end

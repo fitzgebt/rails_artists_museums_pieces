@@ -11,6 +11,10 @@
             <%= f.text_field :name %>
             <%= f.label :year_created %>
             <%= f.text_field :year_created %>
+            <%= f.label :image_url %>
+            <%= f.text_field :image %>
+            <%= f.label :image_description %>
+            <%= f.text_field :image_description %>
             <%= f.submit "Submit a new Piece to this Museum", class:"btn btn-light" %>
         <% end %>
     <% end %>
@@ -18,8 +22,13 @@
     
         <% @museum.pieces.each do |piece| %>
             <% if piece.id %>
-                <h4><%= piece.name %> - <%= piece.year_created %></h4> 
-                <p> created by <%= piece.artist.name %></p>
+                <h4><%= piece.name %> - <%= piece.year_created %></h4>
+
+                <% if piece.image %>
+                
+                    <img src="<%= piece.image %>" class="img-thumbnail" width="200" height="200" alt="<%= piece.image_description>">
+                <%end%>
+                <p> created by <%= piece.artist.name %></p><br><br>
         <% end %>
     
 <% end %>
