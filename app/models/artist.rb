@@ -5,5 +5,5 @@ class Artist < ApplicationRecord
     validates :name, presence: true
     validates :hometown, presence: true
     has_secure_password
-
+    scope :non_github_login, -> { where(github_login: false) }
 end
