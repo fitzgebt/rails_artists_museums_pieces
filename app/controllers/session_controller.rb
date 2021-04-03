@@ -24,7 +24,7 @@ class SessionController < ApplicationController
       @artist = Artist.find_or_create_by(username: self.request.env['omniauth.auth']['info']['nickname']) do |a|
         session[:omniauth_data] = request.env['omniauth.auth']
         session[:name] = request.env['omniauth.auth']['info']['name']
-        a.password_digest = "Random"
+        a.password = SecureRandom.hex
         a.name = session[:name]
         a.hometown = session[:omniauth_data][:extra][:raw_info][:location]
         a.github_login = true
