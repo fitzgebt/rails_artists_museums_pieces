@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 2021_03_29_155729) do
     t.string "name"
     t.string "password_digest"
     t.string "hometown"
+    t.boolean "github_login", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "github_login", default: false
   end
 
   create_table "museums", force: :cascade do |t|
     t.string "name"
     t.string "location"
+    t.boolean "open_status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "open_status", default: true
   end
 
   create_table "pieces", force: :cascade do |t|
@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 2021_03_29_155729) do
     t.string "year_created"
     t.integer "artist_id"
     t.integer "museum_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "image"
     t.string "image_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

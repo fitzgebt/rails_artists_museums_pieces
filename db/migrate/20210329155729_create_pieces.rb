@@ -5,6 +5,8 @@ class CreatePieces < ActiveRecord::Migration[5.2]
       t.string :year_created
       t.integer :artist_id
       t.integer :museum_id
+      t.string :image
+      t.string :image_description
 
       t.timestamps
     end
