@@ -2,6 +2,7 @@ class Piece < ApplicationRecord
     belongs_to :museum
 	belongs_to :artist
 
+    validates_presence_of [:name, :year_created] 
 
     def make_art
         if self.artist.pieces.count == 1

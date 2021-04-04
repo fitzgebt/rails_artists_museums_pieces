@@ -13,6 +13,12 @@
 <p><%= link_to 'See Masterpieces', artist_pieces_path(@artist.id) %></p>
 <p><%= link_to 'See Museums', museums_path %></p><br><br>
 
-<% @artist.museums.each do |museum| %>
+<% if @artist.pieces.any? %>
+  <h4>Your Art is located in the following Museums or Galleries:</h4> 
+  <% @artist.museums.each do |museum| %>
   <%= render partial: 'museums/museum', locals: {museum: museum} %>
+  <% end %>
+<% else %>
+  <h4>Submit a new Piece to a Museum or Gallery:</h4>
+  <%= link_to 'New Submission', museums_path %>
 <% end %>
