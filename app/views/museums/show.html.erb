@@ -1,8 +1,4 @@
-<p><strong>Name:</strong> <%= @museum.name %></p>
-    <p><strong>Total Number of Artists:</strong> <%= @museum.artists.count %></p>
-    <p><strong>Location:</strong> <%= @museum.location %></p>
-    <p><strong>Number of Pieces in Collection:</strong> <%= @museum.pieces.count %></p>
-    <p><strong>Currently: </strong> <%= @museum.open_status ? "Open" : "Closed" %></p>
+<%= render partial: 'museum', locals: {museum: @museum} %>
     
     <% if @museum.open_status == true %>
         <%= form_for @piece, url: museum_pieces_path(@museum.id) do |f| %>

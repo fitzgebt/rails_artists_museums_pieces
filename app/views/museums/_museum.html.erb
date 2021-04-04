@@ -1,0 +1,6 @@
+<strong>Name: </strong><%= museum.name %>
+<strong>Location: </strong><%= museum.location %>
+<strong>Pieces in Collection: </strong><%= museum.pieces.count %>
+<strong>Total Number of Artists: </strong> <%= museum.artists.count %>
+<strong>Currently: </strong><%= museum.open_status ? "Open" : "Closed" %>
+<%= link_to "View or Submit New Art", museum_path(museum) %> <br>

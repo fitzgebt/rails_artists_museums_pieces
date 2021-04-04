@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   # resources :artists
   get '/museums/open', to: 'museums#open'
   match '/auth/:provider/callback', to: 'session#github_login', via: [:get, :post]
-  resources :artists do
-    resources :pieces, only: [:show, :index, :new, :create]
+  resources :artists, except: [:index, :destroy] do
+    resources :pieces, only: [:show, :index]
   end
-  resources :museums do
+  resources :museums, except: [:edit, :update, :destroy] do
     resources :pieces, only: [:show, :index, :new, :create]
   end
   resources :pieces, only: [:edit, :update, :destroy]

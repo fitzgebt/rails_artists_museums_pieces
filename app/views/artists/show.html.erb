@@ -14,9 +14,5 @@
 <p><%= link_to 'See Museums', museums_path %></p><br><br>
 
 <% @artist.museums.each do |museum| %>
-  <strong>Name</strong><%= museum.name %>
-  <strong>Location</strong><%= museum.location %>
-  <strong>Pieces in Collection</strong><%= museum.pieces.count %>
-  <strong>Currently: </strong><%= museum.open_status ? "Open" : "Closed" %>
-  <%= link_to "View or Submit New Art", museum_path(museum) %> <br>
-  <% end %>
+  <%= render partial: 'museums/museum', locals: {museum: museum} %>
+<% end %>

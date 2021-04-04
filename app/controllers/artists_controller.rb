@@ -1,10 +1,6 @@
 class ArtistsController < ApplicationController
     skip_before_action :logged_in, only: [:new, :create]
 
-    def index
-        @artists = Artist.all
-    end
-
     def new
         @artist = Artist.new
     end
@@ -39,9 +35,6 @@ class ArtistsController < ApplicationController
             message = "Profile Updated"
             redirect_to artist_path(@artist), flash: {message: message}
         end
-    end
-
-    def destroy
     end
 
     private
