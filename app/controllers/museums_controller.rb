@@ -2,7 +2,7 @@ class MuseumsController < ApplicationController
 
     
     def index
-        @museums = Museum.all
+        @museums = Museum.ordered_list
     end
 
     def new
@@ -10,8 +10,13 @@ class MuseumsController < ApplicationController
     end
 
     def create
-        museum = Museum.create(museum_params)
-        redirect_to museum_path(museum)
+        @museum = Museum.new(museum_params)
+        if @museum.save
+            redirect_to museum_path(@museum)
+        else
+            render 'new'
+        end
+
     end
 
     def show
